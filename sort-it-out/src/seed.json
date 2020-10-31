@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "name": {
+      "first": "Gabriel",
+      "last": "Martinez"
+    },
+    "email": "gabriel.martinez@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/14.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/14.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/14.jpg"
+    }
+  },
+  {
+    "id": 2,
+    "name": {
+      "first": "Matthieu",
+      "last": "Legrand"
+    },
+    "email": "matthieu.legrand@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/96.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/96.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/96.jpg"
+    }
+  },
+  {
+    "id": 3,
+    "name": {
+      "first": "Dogan",
+      "last": "Mahler"
+    },
+    "email": "dogan.mahler@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/27.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/27.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/27.jpg"
+    }
+  },
+  {
+    "id": 4,
+    "name": {
+      "first": "Anni",
+      "last": "Wuollet"
+    },
+    "email": "anni.wuollet@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/77.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/77.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/77.jpg"
+    }
+  },
+  {
+    "id": 5,
+    "name": {
+      "first": "Milla",
+      "last": "Heikkila"
+    },
+    "email": "milla.heikkila@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/12.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/12.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/12.jpg"
+    }
+  },
+  {
+    "id": 6,
+    "name": {
+      "first": "Deniz",
+      "last": "Aclan"
+    },
+    "email": "deniz.aclan@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/80.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/80.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/80.jpg"
+    }
+  },
+  {
+    "id": 7,
+    "name": {
+      "first": "Shawn",
+      "last": "Taylor"
+    },
+    "email": "shawn.taylor@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/96.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/96.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/96.jpg"
+    }
+  },
+  {
+    "id": 8,
+    "name": {
+      "first": "Rémi",
+      "last": "Nicolas"
+    },
+    "email": "remi.nicolas@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/45.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/45.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/45.jpg"
+    }
+  },
+  {
+    "id": 9,
+    "name": {
+      "first": "Gonca",
+      "last": "Toraman"
+    },
+    "email": "gonca.toraman@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/90.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/90.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/90.jpg"
+    }
+  },
+  {
+    "id": 10,
+    "name": {
+      "first": "Tamara",
+      "last": "Gilbert"
+    },
+    "email": "tamara.gilbert@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/5.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/5.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/5.jpg"
+    }
+  },
+  {
+    "id": 11,
+    "name": {
+      "first": "Lúcio",
+      "last": "da Conceição"
+    },
+    "email": "lucio.daconceicao@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/11.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/11.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/11.jpg"
+    }
+  },
+  {
+    "id": 12,
+    "name": {
+      "first": "Jayden",
+      "last": "Lavigne"
+    },
+    "email": "jayden.lavigne@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/70.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/70.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/70.jpg"
+    }
+  },
+  {
+    "id": 13,
+    "name": {
+      "first": "Mathea",
+      "last": "Nistad"
+    },
+    "email": "mathea.nistad@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/4.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/4.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/4.jpg"
+    }
+  },
+  {
+    "id": 14,
+    "name": {
+      "first": "Norival",
+      "last": "Melo"
+    },
+    "email": "norival.melo@example.com",
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/7.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/7.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/7.jpg"
+    }
+  }
+]
