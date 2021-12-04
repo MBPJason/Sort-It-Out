@@ -3,7 +3,7 @@ import Employee from "./Employee";
 import seed from "../seed.json";
 
 export default function EmployeeWebsite() {
-  const [data, setData] = useState(seed);
+  const [data, setData] = useState([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -20,9 +20,25 @@ export default function EmployeeWebsite() {
     setData(seed);
     setSort({
       method: "",
-      array: data,
+      array: seed,
     });
   }, []);
+
+  // State input managers
+  const handleName = (e) => {
+    const { value } = e.target;
+    setName(value);
+  };
+
+  const handleEmail = (e) => {
+    const { value } = e.target;
+    setEmail(value);
+  };
+
+  const handlePhone = (e) => {
+    const { value } = e.target;
+    setPhone(value);
+  };
 
   // nameSort = () => {
   //   if (this.state.nameCounter === 0) {
@@ -128,11 +144,40 @@ export default function EmployeeWebsite() {
                         </div>
                       </div>
                     </div>
-                    <input type='text' className='form-control'></input>
+                    <input
+                      type='text'
+                      className='form-control'
+                      value={name}
+                      onChange={handleName}
+                    ></input>
                   </div>
                 </th>
-                <th scope='col'>Email</th>
-                <th scope='col'>Phone</th>
+                <th scope='col'>
+                  <div className='input-group'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text'>Email</span>
+                    </div>
+                    <input
+                      type='text'
+                      className='form-control'
+                      value={email}
+                      onChange={handleEmail}
+                    ></input>
+                  </div>
+                </th>
+                <th scope='col'>
+                  <div className='input-group'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text'>Phone</span>
+                    </div>
+                    <input
+                      type='text'
+                      className='form-control'
+                      value={phone}
+                      onChange={handlePhone}
+                    ></input>
+                  </div>
+                </th>
               </tr>
             </thead>
             <tbody>
