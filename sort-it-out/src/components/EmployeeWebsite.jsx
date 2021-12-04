@@ -16,6 +16,7 @@ export default function EmployeeWebsite() {
     setData(seed);
   }, []);
 
+  // Name sorting by string
   useEffect(() => {
     let namesSorted = seed.filter(
       ({ name }) =>
@@ -25,6 +26,30 @@ export default function EmployeeWebsite() {
 
     names.trim().length === 0 ? setData(seed) : setData(namesSorted);
   }, [names]);
+
+  // Email sorting by string
+  useEffect(() => {
+    let emailsSorted = seed.filter(
+      ({ email }) =>
+        email.toLocaleLowerCase().includes(emails.toLocaleLowerCase())
+    );
+
+    emails.trim().length === 0 ? setData(seed) : setData(emailsSorted);
+  }, [emails]);
+
+  // Phone sorting by string
+  useEffect(() => {
+    const reg = /\(/
+    
+    let phonesSorted = seed.filter(
+      ({ phone }) =>
+        phone.split(reg).join().includes(phones)
+    );
+
+    phones.trim().length === 0 ? setData(seed) : setData(phonesSorted);
+  }, [phones]);
+
+
 
   // State input managers
   const handleName = (e) => {
