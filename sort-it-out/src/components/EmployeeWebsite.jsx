@@ -74,7 +74,7 @@ class EmployeeWebsite extends Component {
           <br />
           <br />
           <br />
-          <section className='col-lg-8 align-content-center'>
+          <section className='col align-content-center'>
             <table
               id='employees'
               className='table table-striped table-bordered table-md '
@@ -84,7 +84,7 @@ class EmployeeWebsite extends Component {
               <thead>
                 <tr>
                   <th scope='col'>Gender</th>
-                  <th onClick={this.nameSort} >Name</th>
+                  <th scope='col' onClick={this.nameSort} >Name</th>
                   <th scope='col'>Email</th>
                   <th scope='col'>Phone</th>
                 </tr>
