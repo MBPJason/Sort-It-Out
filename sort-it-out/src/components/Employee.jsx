@@ -5,7 +5,7 @@ function Employee(props) {
     <tr id={props.id}>
       <td>
         <img
-          className='mr-2'
+          className='mx-auto d-block'
           alt={props.fullname}
           src={props.image}
         />
@@ -17,7 +17,7 @@ function Employee(props) {
         <p>{props.email}</p>
       </td>
       <td>
-        <p>Generic Phone Number</p>
+        <p>{props.phone}</p>
       </td>
     </tr>
   );
