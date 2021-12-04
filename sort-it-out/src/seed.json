@@ -1,236 +1,211 @@
 [
   {
-    "gender": "female",
-    "name": {
-      "title": "Mrs",
-      "first": "Marcia",
-      "last": "Reid"
-    },
-    "phone": "(965)-955-0912",
-    "id": {
-      "name": "SSN",
-      "value": "165-07-2640"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/women/40.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/women/40.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/40.jpg"
-    }
-  },
-  {
-    "gender": "female",
-    "name": {
-      "title": "Mrs",
-      "first": "Debbie",
-      "last": "Woods"
-    },
-    "phone": "(709)-536-2257",
-    "id": {
-      "name": "SSN",
-      "value": "753-34-0955"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/women/4.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/women/4.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/4.jpg"
-    }
-  },
-  {
     "gender": "male",
     "name": {
       "title": "Mr",
-      "first": "Pedro",
-      "last": "Steward"
+      "first": "Raul",
+      "last": "Reyes"
     },
-    "phone": "(801)-998-4492",
+    "email": "raul.reyes@example.com",
+    "phone": "(130)-802-2813",
     "id": {
       "name": "SSN",
-      "value": "151-80-0521"
+      "value": "529-45-5652"
     },
     "picture": {
-      "large": "https://randomuser.me/api/portraits/men/69.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/69.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/69.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Marcus",
-      "last": "Chavez"
-    },
-    "phone": "(661)-432-2551",
-    "id": {
-      "name": "SSN",
-      "value": "587-04-5661"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/84.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/84.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/84.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Miguel",
-      "last": "Harvey"
-    },
-    "phone": "(825)-680-9553",
-    "id": {
-      "name": "SSN",
-      "value": "267-44-9687"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/86.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/86.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/86.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "David",
-      "last": "Knight"
-    },
-    "phone": "(574)-786-0558",
-    "id": {
-      "name": "SSN",
-      "value": "495-87-3795"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/5.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/5.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/5.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Austin",
-      "last": "Matthews"
-    },
-    "phone": "(911)-719-0249",
-    "id": {
-      "name": "SSN",
-      "value": "712-50-6278"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/1.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/1.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/1.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Nathaniel",
-      "last": "Bowman"
-    },
-    "phone": "(780)-826-5199",
-    "id": {
-      "name": "SSN",
-      "value": "702-54-2894"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/27.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/27.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/27.jpg"
+      "large": "https://randomuser.me/api/portraits/men/73.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/73.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/73.jpg"
     }
   },
   {
     "gender": "female",
     "name": {
       "title": "Ms",
-      "first": "Terry",
-      "last": "Sims"
+      "first": "Misty",
+      "last": "Carpenter"
     },
-    "phone": "(281)-112-8668",
+    "email": "misty.carpenter@example.com",
+    "phone": "(988)-214-6534",
     "id": {
       "name": "SSN",
-      "value": "444-38-1559"
+      "value": "442-33-1822"
     },
     "picture": {
-      "large": "https://randomuser.me/api/portraits/women/91.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/women/91.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/91.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Lonnie",
-      "last": "Hicks"
-    },
-    "phone": "(958)-671-1440",
-    "id": {
-      "name": "SSN",
-      "value": "602-12-5718"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/10.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/10.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/10.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Lee",
-      "last": "Hopkins"
-    },
-    "phone": "(380)-089-6908",
-    "id": {
-      "name": "SSN",
-      "value": "322-67-5510"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/23.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/23.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/23.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Ricardo",
-      "last": "Mcdonalid"
-    },
-    "phone": "(710)-729-5844",
-    "id": {
-      "name": "SSN",
-      "value": "281-32-9235"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/17.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/17.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/17.jpg"
+      "large": "https://randomuser.me/api/portraits/women/15.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/15.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/15.jpg"
     }
   },
   {
     "gender": "female",
     "name": {
       "title": "Ms",
-      "first": "Wanda",
-      "last": "Fuller"
+      "first": "Wendy",
+      "last": "Carpenter"
     },
-    "phone": "(950)-229-9525",
+    "email": "wendy.carpenter@example.com",
+    "phone": "(993)-576-3471",
     "id": {
       "name": "SSN",
-      "value": "828-14-5099"
+      "value": "752-96-4240"
     },
     "picture": {
-      "large": "https://randomuser.me/api/portraits/women/85.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/women/85.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/85.jpg"
+      "large": "https://randomuser.me/api/portraits/women/11.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/11.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/11.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Miss",
+      "first": "Mae",
+      "last": "Cole"
+    },
+    "email": "mae.cole@example.com",
+    "phone": "(388)-594-6989",
+    "id": {
+      "name": "SSN",
+      "value": "279-17-9903"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/2.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/2.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/2.jpg"
+    }
+  },
+  {
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Zachary",
+      "last": "Burns"
+    },
+    "email": "zachary.burns@example.com",
+    "phone": "(083)-326-3330",
+    "id": {
+      "name": "SSN",
+      "value": "685-02-0341"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/15.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/15.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/15.jpg"
+    }
+  },
+  {
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Stephen",
+      "last": "Garza"
+    },
+    "email": "stephen.garza@example.com",
+    "phone": "(348)-280-3151",
+    "id": {
+      "name": "SSN",
+      "value": "628-73-9506"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/82.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/82.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/82.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Miss",
+      "first": "Diane",
+      "last": "Kim"
+    },
+    "email": "diane.kim@example.com",
+    "phone": "(887)-823-4467",
+    "id": {
+      "name": "SSN",
+      "value": "920-58-7591"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/39.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/39.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/39.jpg"
+    }
+  },
+  {
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Travis",
+      "last": "Walker"
+    },
+    "email": "travis.walker@example.com",
+    "phone": "(377)-189-4137",
+    "id": {
+      "name": "SSN",
+      "value": "199-29-4376"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/45.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/45.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/45.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Miss",
+      "first": "Glenda",
+      "last": "Kennedy"
+    },
+    "email": "glenda.kennedy@example.com",
+    "phone": "(719)-357-7937",
+    "id": {
+      "name": "SSN",
+      "value": "550-01-5753"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/94.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/94.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/94.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Ms",
+      "first": "Margie",
+      "last": "Gutierrez"
+    },
+    "email": "margie.gutierrez@example.com",
+    "phone": "(413)-713-0898",
+    "id": {
+      "name": "SSN",
+      "value": "245-04-6674"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/76.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/76.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/76.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Miss",
+      "first": "Ella",
+      "last": "Bates"
+    },
+    "email": "ella.bates@example.com",
+    "phone": "(931)-407-8949",
+    "id": {
+      "name": "SSN",
+      "value": "518-25-9856"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/0.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/0.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/0.jpg"
     }
   },
   {
@@ -238,125 +213,170 @@
     "name": {
       "title": "Mrs",
       "first": "Constance",
-      "last": "Wallace"
+      "last": "Bailey"
     },
-    "phone": "(652)-444-8726",
+    "email": "constance.bailey@example.com",
+    "phone": "(119)-596-8362",
     "id": {
       "name": "SSN",
-      "value": "779-48-4665"
+      "value": "407-00-2563"
     },
     "picture": {
-      "large": "https://randomuser.me/api/portraits/women/60.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/women/60.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/60.jpg"
+      "large": "https://randomuser.me/api/portraits/women/76.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/76.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/76.jpg"
     }
   },
   {
     "gender": "male",
     "name": {
       "title": "Mr",
-      "first": "Tom",
-      "last": "Rodriquez"
+      "first": "Dan",
+      "last": "Hansen"
     },
-    "phone": "(511)-890-0574",
+    "email": "dan.hansen@example.com",
+    "phone": "(107)-721-3122",
     "id": {
       "name": "SSN",
-      "value": "968-78-7323"
+      "value": "763-01-1724"
     },
     "picture": {
-      "large": "https://randomuser.me/api/portraits/men/32.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/32.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/32.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Tyler",
-      "last": "Herrera"
-    },
-    "phone": "(022)-217-5330",
-    "id": {
-      "name": "SSN",
-      "value": "363-38-8279"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/70.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/70.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/70.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Roland",
-      "last": "Scott"
-    },
-    "phone": "(489)-548-8240",
-    "id": {
-      "name": "SSN",
-      "value": "291-80-6720"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/76.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/76.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/76.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Alfred",
-      "last": "Barrett"
-    },
-    "phone": "(811)-437-3155",
-    "id": {
-      "name": "SSN",
-      "value": "854-48-8326"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/19.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/19.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/19.jpg"
-    }
-  },
-  {
-    "gender": "male",
-    "name": {
-      "title": "Mr",
-      "first": "Ryan",
-      "last": "Fernandez"
-    },
-    "phone": "(292)-477-0062",
-    "id": {
-      "name": "SSN",
-      "value": "665-44-1956"
-    },
-    "picture": {
-      "large": "https://randomuser.me/api/portraits/men/80.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/men/80.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/80.jpg"
+      "large": "https://randomuser.me/api/portraits/men/62.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/62.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/62.jpg"
     }
   },
   {
     "gender": "female",
     "name": {
       "title": "Ms",
-      "first": "Kim",
-      "last": "Sutton"
+      "first": "Celina",
+      "last": "King"
     },
-    "phone": "(715)-245-4628",
+    "email": "celina.king@example.com",
+    "phone": "(859)-628-4699",
     "id": {
       "name": "SSN",
-      "value": "186-49-8668"
+      "value": "903-20-1344"
     },
     "picture": {
-      "large": "https://randomuser.me/api/portraits/women/43.jpg",
-      "medium": "https://randomuser.me/api/portraits/med/women/43.jpg",
-      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/43.jpg"
+      "large": "https://randomuser.me/api/portraits/women/65.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/65.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/65.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Ms",
+      "first": "Yolanda",
+      "last": "Hart"
+    },
+    "email": "yolanda.hart@example.com",
+    "phone": "(808)-151-9135",
+    "id": {
+      "name": "SSN",
+      "value": "217-32-7272"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/75.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/75.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/75.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Ms",
+      "first": "Deann",
+      "last": "Day"
+    },
+    "email": "deann.day@example.com",
+    "phone": "(469)-226-1599",
+    "id": {
+      "name": "SSN",
+      "value": "515-07-4606"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/9.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/9.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/9.jpg"
+    }
+  },
+  {
+    "gender": "male",
+    "name": {
+      "title": "Mr",
+      "first": "Pat",
+      "last": "Barnett"
+    },
+    "email": "pat.barnett@example.com",
+    "phone": "(121)-749-1601",
+    "id": {
+      "name": "SSN",
+      "value": "378-15-2045"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/9.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/9.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/9.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Ms",
+      "first": "Nora",
+      "last": "Webb"
+    },
+    "email": "nora.webb@example.com",
+    "phone": "(709)-680-0348",
+    "id": {
+      "name": "SSN",
+      "value": "903-94-5157"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/74.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/74.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/74.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Miss",
+      "first": "Amanda",
+      "last": "Kelley"
+    },
+    "email": "amanda.kelley@example.com",
+    "phone": "(186)-880-7340",
+    "id": {
+      "name": "SSN",
+      "value": "213-08-3934"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/81.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/81.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/81.jpg"
+    }
+  },
+  {
+    "gender": "female",
+    "name": {
+      "title": "Mrs",
+      "first": "Lisa",
+      "last": "Ross"
+    },
+    "email": "lisa.ross@example.com",
+    "phone": "(418)-643-8654",
+    "id": {
+      "name": "SSN",
+      "value": "582-01-7541"
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/46.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/46.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/46.jpg"
     }
   }
 ]
