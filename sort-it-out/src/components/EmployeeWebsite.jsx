@@ -4,13 +4,9 @@ import seed from "../seed.json";
 
 export default function EmployeeWebsite() {
   const [data, setData] = useState([]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [sort, setSort] = useState({
-    method: "",
-    array: [],
-  });
+  const [names, setNames] = useState("");
+  const [emails, setEmails] = useState("");
+  const [phones, setPhones] = useState("");
   const [nameAsc, setNameAsc] = useState({
     which: "first",
     bool: false,
@@ -18,37 +14,35 @@ export default function EmployeeWebsite() {
 
   useEffect(() => {
     setData(seed);
-    setSort({
-      method: "",
-      array: seed,
-    });
   }, []);
+
+  useEffect(() => {
+    let namesSorted = seed.filter(
+      ({ name }) =>
+        name.first.toLocaleLowerCase().includes(names.toLocaleLowerCase()) ||
+        name.last.toLocaleLowerCase().includes(names.toLocaleLowerCase())
+    );
+
+    names.trim().length === 0 ? setData(seed) : setData(namesSorted);
+  }, [names]);
 
   // State input managers
   const handleName = (e) => {
     const { value } = e.target;
-    setName(value);
+    setNames(value);
   };
 
   const handleEmail = (e) => {
     const { value } = e.target;
-    setEmail(value);
+    setEmails(value);
   };
 
   const handlePhone = (e) => {
     const { value } = e.target;
-    setPhone(value);
+    setPhones(value);
   };
 
-  // nameSort = () => {
-  //   if (this.state.nameCounter === 0) {
-  //     this.handleSort("Alpha");
-  //     this.setState({ nameCounter: 1 });
-  //   } else {
-  //     this.handleSort("Beta");
-  //     this.setState({ nameCounter: 0 });
-  //   }
-  // };
+  const emailSort = () => {};
 
   // handleSort = (method) => {
   //   let sortedArray;
@@ -147,7 +141,7 @@ export default function EmployeeWebsite() {
                     <input
                       type='text'
                       className='form-control'
-                      value={name}
+                      value={names}
                       onChange={handleName}
                     ></input>
                   </div>
@@ -160,8 +154,11 @@ export default function EmployeeWebsite() {
                     <input
                       type='text'
                       className='form-control'
-                      value={email}
-                      onChange={handleEmail}
+                      value={emails}
+                      onChange={(e) => {
+                        handleEmail(e);
+                        emailSort();
+                      }}
                     ></input>
                   </div>
                 </th>
@@ -173,7 +170,7 @@ export default function EmployeeWebsite() {
                     <input
                       type='text'
                       className='form-control'
-                      value={phone}
+                      value={phones}
                       onChange={handlePhone}
                     ></input>
                   </div>
@@ -181,7 +178,7 @@ export default function EmployeeWebsite() {
               </tr>
             </thead>
             <tbody>
-              {sort.array.map((person) => (
+              {data.map((person) => (
                 <Employee
                   id={person.id.value.slice(-4)}
                   key={person.id.value.slice(-4)}
