@@ -74,10 +74,10 @@ class EmployeeWebsite extends Component {
           <br />
           <br />
           <br />
-          <section className='col-lg-8'>
+          <section className='col-lg-8 align-content-center'>
             <table
               id='employees'
-              className='table table-striped table-bordered table-md align-content-center'
+              className='table table-striped table-bordered table-md '
               cellSpacing='0'
               width='100%'
             >
