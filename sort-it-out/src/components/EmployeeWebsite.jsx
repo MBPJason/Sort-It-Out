@@ -83,7 +83,18 @@ class EmployeeWebsite extends Component {
             >
               <thead>
                 <tr>
-                  <th scope='col'>Gender</th>
+                  <th scope='col'>Gender
+                  <div className='dropdown'>
+                  <button type='button' className='btn btn-secondary dropdown-toggle' id="dropdownMenuOffset" data-toggle="dropdown">
+                    Select
+                  </button>
+                  <div className='dropdown-menu'>
+                  <p className='dropdown-item'>Male</p>
+                  <p className='dropdown-item'>Female</p>
+
+                  </div>
+                  </div>
+                  </th>
                   <th scope='col' onClick={this.nameSort} >Name</th>
                   <th scope='col'>Email</th>
                   <th scope='col'>Phone</th>
