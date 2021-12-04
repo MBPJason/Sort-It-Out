@@ -83,6 +83,7 @@ class EmployeeWebsite extends Component {
             >
               <thead>
                 <tr>
+                  <th scope='col'>Gender</th>
                   <th onClick={this.nameSort} >Name</th>
                   <th scope='col'>Email</th>
                   <th scope='col'>Phone</th>
@@ -91,10 +92,11 @@ class EmployeeWebsite extends Component {
               <tbody>
                 {this.state.result.map((person) => (
                   <Employee
-                    id={person.id}
-                    key={person.id}
+                    id={person.id.value.slice(-4)}
+                    key={person.id.value.slice(-4)}
                     fullname={`${person.name.first} ${person.name.last}`}
                     email={person.email}
+                    gender={person.gender}
                     image={person.picture.medium}
                     phone={person.phone}
                   />
