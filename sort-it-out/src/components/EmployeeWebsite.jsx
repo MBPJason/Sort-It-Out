@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Employee from "./Employee";
+import DropdownInput from "./DropdownInput";
 import seed from "../seed.json";
 
 export default function EmployeeWebsite() {
@@ -39,13 +40,13 @@ export default function EmployeeWebsite() {
 
   // Phone sorting by string
   useEffect(() => {
-    const reg = /\(/
+    const reg = /[^0-9]/g
     
     let phonesSorted = seed.filter(
       ({ phone }) =>
-        phone.split(reg).join().includes(phones)
+        phone.split(reg).join('').includes(phones)
     );
-
+      
     phones.trim().length === 0 ? setData(seed) : setData(phonesSorted);
   }, [phones]);
 
@@ -67,7 +68,6 @@ export default function EmployeeWebsite() {
     setPhones(value);
   };
 
-  const emailSort = () => {};
 
   // handleSort = (method) => {
   //   let sortedArray;
@@ -142,63 +142,31 @@ export default function EmployeeWebsite() {
                   </div>
                 </th>
                 <th scope='col'>
-                  <div className='input-group'>
-                    <div className='input-group-prepend'>
-                      <div className='dropdown'>
-                        <button
-                          type='button'
-                          className='btn btn-secondary dropdown-toggle'
-                          id='dropdownMenuName'
-                          data-toggle='dropdown'
-                        >
-                          Name
-                        </button>
-                        <div className='dropdown-menu'>
-                          <p className='dropdown-item' onClick>
-                            First Name
-                          </p>
-                          <p className='dropdown-item' onClick>
-                            Last Name
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <input
-                      type='text'
-                      className='form-control'
-                      value={names}
-                      onChange={handleName}
-                    ></input>
-                  </div>
+                  <DropdownInput
+                    title="Name"
+                    value={names}
+                    onChange={handleName}
+                    option1="First Name"
+                    option2="Last Name"
+                  />
                 </th>
                 <th scope='col'>
-                  <div className='input-group'>
-                    <div className='input-group-prepend'>
-                      <span className='input-group-text'>Email</span>
-                    </div>
-                    <input
-                      type='text'
-                      className='form-control'
-                      value={emails}
-                      onChange={(e) => {
-                        handleEmail(e);
-                        emailSort();
-                      }}
-                    ></input>
-                  </div>
+                  <DropdownInput
+                    title="Email"
+                    value={emails}
+                    onChange={handleEmail}
+                    option1="Asc"
+                    option2="Des"
+                  />
                 </th>
                 <th scope='col'>
-                  <div className='input-group'>
-                    <div className='input-group-prepend'>
-                      <span className='input-group-text'>Phone</span>
-                    </div>
-                    <input
-                      type='text'
-                      className='form-control'
-                      value={phones}
-                      onChange={handlePhone}
-                    ></input>
-                  </div>
+                <DropdownInput
+                    title="Phone"
+                    value={phones}
+                    onChange={handlePhone}
+                    option1="Asc"
+                    option2="Des"
+                  />
                 </th>
               </tr>
             </thead>
