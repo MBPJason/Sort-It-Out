@@ -207,7 +207,6 @@ export default function EmployeeWebsite() {
       }
     } else {
       if (asc === "asc") {
-        console.log("setting state to false");
         ascending(column, false);
         setNameAsc({
           which: column,
@@ -215,7 +214,6 @@ export default function EmployeeWebsite() {
         });
       } else {
         console.log("setting state to true");
-        ascending(column, true);
         setNameAsc({
           which: column,
           bool: true,
