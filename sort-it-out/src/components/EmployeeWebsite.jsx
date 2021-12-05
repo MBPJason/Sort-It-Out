@@ -9,7 +9,7 @@ export default function EmployeeWebsite() {
   const [emails, setEmails] = useState("");
   const [phones, setPhones] = useState("");
   const [nameAsc, setNameAsc] = useState({
-    which: "first",
+    which: "",
     bool: false,
   });
 
@@ -30,9 +30,8 @@ export default function EmployeeWebsite() {
 
   // Email sorting by string
   useEffect(() => {
-    let emailsSorted = seed.filter(
-      ({ email }) =>
-        email.toLocaleLowerCase().includes(emails.toLocaleLowerCase())
+    let emailsSorted = seed.filter(({ email }) =>
+      email.toLocaleLowerCase().includes(emails.toLocaleLowerCase())
     );
 
     emails.trim().length === 0 ? setData(seed) : setData(emailsSorted);
@@ -40,16 +39,14 @@ export default function EmployeeWebsite() {
 
   // Phone sorting by string
   useEffect(() => {
-    const reg = /[^0-9]/g
-    
-    let phonesSorted = seed.filter(
-      ({ phone }) =>
-        phone.split(reg).join('').includes(phones)
+    const reg = /[^0-9]/g;
+
+    let phonesSorted = seed.filter(({ phone }) =>
+      phone.split(reg).join("").includes(phones)
     );
-      
+
     phones.trim().length === 0 ? setData(seed) : setData(phonesSorted);
   }, [phones]);
-
 
 
   // State input managers
@@ -69,42 +66,162 @@ export default function EmployeeWebsite() {
   };
 
 
-  // handleSort = (method) => {
-  //   let sortedArray;
-  //   if (method === "Alpha") {
-  //     sortedArray = seed.sort((a, b) => {
-  //       let fa = a.name.first.toLowerCase(),
-  //         fb = b.name.first.toLowerCase();
+  // Main engine of sorting for ascending or descending
+  const ascending = (which, bool) => {
+    if (which === "gender") {
+      let genderArray = data.sort((a, b) => {
+        let genderA = a.gender;
+        let genderB = b.gender;
 
-  //       if (fa < fb) {
-  //         return -1;
-  //       }
-  //       if (fa > fb) {
-  //         return 1;
-  //       }
-  //       return 0;
-  //     });
+        if (bool) {
+          if (genderA < genderB) {
+            return -1;
+          }
+          if (genderA > genderB) {
+            return 1;
+          }
+          return 0;
+        } else {
+          if (genderA > genderB) {
+            return -1;
+          }
+          if (genderA < genderB) {
+            return 1;
+          }
+          return 0;
+        }
+      });
 
-  //     this.setState({ result: sortedArray });
-  //   } else if (method === "Beta") {
-  //     sortedArray = seed.sort((a, b) => {
-  //       let fa = a.name.first.toLowerCase(),
-  //         fb = b.name.first.toLowerCase();
+      setData(genderArray);
+    }
 
-  //       if (fa > fb) {
-  //         return -1;
-  //       }
-  //       if (fa < fb) {
-  //         return 1;
-  //       }
-  //       return 0;
-  //     });
+    if (which === "first name") {
+      let firstNameArray = data.sort((a, b) => {
+        let fa = a.name.first.toLocaleLowerCase();
+        let fb = b.name.first.toLocaleLowerCase();
 
-  //     this.setState({ result: sortedArray });
-  //   }
-  // };
+        if (bool) {
+          if (fa > fb) {
+            return -1;
+          }
+          if (fa < fb) {
+            return 1;
+          }
+          return 0;
+        } else {
+          if (fa < fb) {
+            return -1;
+          }
+          if (fa > fb) {
+            return 1;
+          }
+          return 0;
+        }
+      });
 
-  // handleInputSearch = (event) => {};
+      setData(firstNameArray);
+    }
+
+    if (which === "last name") {
+      let lastNameArray = data.sort((a, b) => {
+        let la = a.name.last.toLocaleLowerCase();
+        let lb = b.name.last.toLocaleLowerCase();
+
+        if (bool) {
+          if (la > lb) {
+            return -1;
+          }
+          if (la < lb) {
+            return 1;
+          }
+          return 0;
+        } else {
+          if (la < lb) {
+            return -1;
+          }
+          if (la > lb) {
+            return 1;
+          }
+          return 0;
+        }
+      });
+
+      setData(lastNameArray);
+    }
+
+    if (which === "email") {
+      let emailArray = data.sort((a, b) => {
+        let emailA = a.email.toLocaleLowerCase();
+        let emailB = b.email.toLocaleLowerCase();
+
+        if (bool) {
+          if (emailA < emailB) {
+            return -1;
+          }
+          if (emailA > emailB) {
+            return 1;
+          }
+          return 0;
+        } else {
+          if (emailA > emailB) {
+            return -1;
+          }
+          if (emailA < emailB) {
+            return 1;
+          }
+          return 0;
+        }
+      });
+      setData(emailArray);
+    }
+
+    if (which === "phone") {
+      let phoneArray = data.sort((a, b) => {
+        const reg = /\((.*)\)/g;
+        let phoneA = a.phone.split(reg);
+        let phoneB = b.phone.split(reg);
+        console.log(phoneA, phoneB)
+
+        if (bool) {
+          return phoneA[1] - phoneB[1];
+        } else {
+          return phoneB[1] - phoneA[1];
+        }
+      });
+
+      setData(phoneArray);
+    }
+  };
+
+  // Pre check for sorting engine. Sets state afterwards
+  const sort = (column, asc) => {
+    if (column === "first name" || "last name") {
+      if (nameAsc.which === column) {
+        ascending(nameAsc.which, !nameAsc.bool);
+        setNameAsc((prevState) => ({ ...prevState, bool: !nameAsc.bool }));
+      } else {
+        ascending(column, false);
+        setNameAsc({
+          which: column,
+          bool: false,
+        });
+      }
+    } else {
+      if (asc === "asc") {
+        ascending(column, false);
+        setNameAsc({
+          which: column,
+          bool: false,
+        });
+      } else {
+        ascending(column, true);
+        setNameAsc({
+          which: column,
+          bool: true,
+        });
+      }
+    }
+  };
 
   return (
     <main className='container'>
@@ -136,36 +253,52 @@ export default function EmployeeWebsite() {
                       Gender
                     </button>
                     <div className='dropdown-menu'>
-                      <p className='dropdown-item'>Male</p>
-                      <p className='dropdown-item'>Female</p>
+                      <p
+                        className='dropdown-item'
+                        onClick={() => sort("gender", "asc")}
+                      >
+                        Male
+                      </p>
+                      <p
+                        className='dropdown-item'
+                        onClick={() => sort("gender", "des")}
+                      >
+                        Female
+                      </p>
                     </div>
                   </div>
                 </th>
                 <th scope='col'>
                   <DropdownInput
-                    title="Name"
+                    title='Name'
                     value={names}
                     onChange={handleName}
-                    option1="First Name"
-                    option2="Last Name"
+                    option1='First Name'
+                    option2='Last Name'
+                    sort1={() => sort("first name")}
+                    sort2={() => sort("last name")}
                   />
                 </th>
                 <th scope='col'>
                   <DropdownInput
-                    title="Email"
+                    title='Email'
                     value={emails}
                     onChange={handleEmail}
-                    option1="Asc"
-                    option2="Des"
+                    option1='Asc'
+                    option2='Des'
+                    sort1={() => sort("email", "des")}
+                    sort2={() => sort("email", "des")}
                   />
                 </th>
                 <th scope='col'>
-                <DropdownInput
-                    title="Phone"
+                  <DropdownInput
+                    title='Phone'
                     value={phones}
                     onChange={handlePhone}
-                    option1="Asc"
-                    option2="Des"
+                    option1='Asc'
+                    option2='Des'
+                    sort1={() => sort("phone", "asc")}
+                    sort2={() => sort("phone", "des")}
                   />
                 </th>
               </tr>
