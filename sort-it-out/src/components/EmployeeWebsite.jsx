@@ -180,7 +180,6 @@ export default function EmployeeWebsite() {
         const reg = /\((.*)\)/g;
         let phoneA = a.phone.split(reg);
         let phoneB = b.phone.split(reg);
-        console.log(phoneA, phoneB)
 
         if (bool) {
           return phoneA[1] - phoneB[1];
@@ -195,7 +194,7 @@ export default function EmployeeWebsite() {
 
   // Pre check for sorting engine. Sets state afterwards
   const sort = (column, asc) => {
-    if (column === "first name" || "last name") {
+    if (column === "first name" || column === "last name") {
       if (nameAsc.which === column) {
         ascending(nameAsc.which, !nameAsc.bool);
         setNameAsc((prevState) => ({ ...prevState, bool: !nameAsc.bool }));
@@ -208,12 +207,14 @@ export default function EmployeeWebsite() {
       }
     } else {
       if (asc === "asc") {
+        console.log("setting state to false");
         ascending(column, false);
         setNameAsc({
           which: column,
           bool: false,
         });
       } else {
+        console.log("setting state to true");
         ascending(column, true);
         setNameAsc({
           which: column,
@@ -286,7 +287,7 @@ export default function EmployeeWebsite() {
                     onChange={handleEmail}
                     option1='Asc'
                     option2='Des'
-                    sort1={() => sort("email", "des")}
+                    sort1={() => sort("email", "asc")}
                     sort2={() => sort("email", "des")}
                   />
                 </th>
