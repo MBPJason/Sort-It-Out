@@ -13,6 +13,21 @@ export default function EmployeeWebsite() {
     which: "",
     bool: false,
   });
+  const [person, setPerson] = useState({
+    id: {
+      value: "",
+    },
+    gender: "",
+    name: {
+      first: "",
+      last: "",
+    },
+    email: "",
+    phone: "",
+    picture: {
+      medium: "",
+    },
+  });
 
   useEffect(() => {
     setData(seed);
@@ -55,6 +70,41 @@ export default function EmployeeWebsite() {
   const handlePhone = (e) => {
     const { value } = e.target;
     setPhones(value);
+  };
+
+  const handlePerson = (e, part) => {
+    const { value } = e.target;
+
+    if (part === "first") {
+      setPerson((prevState) => ({
+        ...prevState,
+        name: {
+          first: value,
+          last: prevState.name.last,
+        },
+      }));
+    } else if (part === "last") {
+      setPerson((prevState) => ({
+        ...prevState,
+        name: {
+          first: prevState.name.first,
+          last: value,
+        },
+      }));
+    } else if (part === "phone") {
+      const { maxLength } = e.target;
+      const num = value.slice(0, maxLength);
+
+      setPerson((prevState) => ({
+        ...prevState,
+        phone: num,
+      }));
+    } else {
+      setPerson((prevState) => ({
+        ...prevState,
+        [part]: value,
+      }));
+    }
   };
 
   // Main engine of sorting for ascending or descending
@@ -224,6 +274,72 @@ export default function EmployeeWebsite() {
         <br />
         <br />
         <section className='col align-content-center'>
+          <button
+            className='btn btn-primary mb-2'
+            type='button'
+            data-toggle='collapse'
+            data-target='#newPerson'
+            aria-expanded='false'
+            aria-controls='collapseExample'
+          >
+            Add a person
+          </button>
+          <form className='collapse mb-2' id='newPerson'>
+            <div className='form-row'>
+              <div className='form-group col-1'>
+                <select
+                  id='genderChoice'
+                  className='form-control'
+                  onChange={(e) => handlePerson(e, "gender")}
+                >
+                  <option value='Male'>Male</option>
+                  <option value='Female'>Female</option>
+                </select>
+              </div>
+              <div className='form-group col'>
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='First Name'
+                  value={person.name.first}
+                  onChange={(e) => handlePerson(e, "first")}
+                />
+              </div>
+              <div className='form-group col'>
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Last Name'
+                  value={person.name.last}
+                  onChange={(e) => handlePerson(e, "last")}
+                />
+              </div>
+              <div className='form-group col'>
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Email'
+                  value={person.email}
+                  onChange={(e) => handlePerson(e, "email")}
+                />
+              </div>
+              <div className='form-group col'>
+                <input
+                  type='number'
+                  className='form-control'
+                  placeholder='Phone'
+                  maxLength='10'
+                  value={person.phone}
+                  onChange={(e) => handlePerson(e, "phone")}
+                />
+              </div>
+              <div className='form-group col-auto'>
+                <button type='submit' className='btn btn-primary'>
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
           <table
             id='employees'
             className='table table-striped table-bordered table-md '
