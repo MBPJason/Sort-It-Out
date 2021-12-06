@@ -254,13 +254,20 @@ export default function EmployeeWebsite() {
           bool: false,
         });
       } else {
-        console.log("setting state to true");
+        ascending(column, true);
         setNameAsc({
           which: column,
           bool: true,
         });
       }
     }
+  };
+
+  const clearAll = () => {
+    setNames("");
+    setPhones("");
+    setEmails("");
+    setNameAsc({ which: "", bool: false });
   };
 
   return (
@@ -274,16 +281,21 @@ export default function EmployeeWebsite() {
         <br />
         <br />
         <section className='col align-content-center'>
-          <button
-            className='btn btn-primary mb-2'
-            type='button'
-            data-toggle='collapse'
-            data-target='#newPerson'
-            aria-expanded='false'
-            aria-controls='collapseExample'
-          >
-            Add a person
-          </button>
+          <div className='d-flex justify-content-between'>
+            <button
+              className='btn btn-primary mb-2'
+              type='button'
+              data-toggle='collapse'
+              data-target='#newPerson'
+              aria-expanded='false'
+              aria-controls='collapseExample'
+            >
+              Add a person
+            </button>
+            <button className='btn btn-danger mb-2' onClick={clearAll}>
+              Clear Filters
+            </button>
+          </div>
           <form className='collapse mb-2' id='newPerson'>
             <div className='form-row'>
               <div className='form-group col-1'>
