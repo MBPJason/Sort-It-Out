@@ -5,6 +5,7 @@ import seed from "../seed.json";
 
 export default function EmployeeWebsite() {
   const [data, setData] = useState([]);
+  const [trueArr, setTrueArr] = useState([]);
   const [names, setNames] = useState("");
   const [emails, setEmails] = useState("");
   const [phones, setPhones] = useState("");
@@ -15,39 +16,30 @@ export default function EmployeeWebsite() {
 
   useEffect(() => {
     setData(seed);
+    setTrueArr(seed);
   }, []);
 
-  // Name sorting by string
-  useEffect(() => {
-    let namesSorted = seed.filter(
-      ({ name }) =>
-        name.first.toLocaleLowerCase().includes(names.toLocaleLowerCase()) ||
-        name.last.toLocaleLowerCase().includes(names.toLocaleLowerCase())
-    );
-
-    names.trim().length === 0 ? setData(seed) : setData(namesSorted);
-  }, [names]);
-
-  // Email sorting by string
-  useEffect(() => {
-    let emailsSorted = seed.filter(({ email }) =>
-      email.toLocaleLowerCase().includes(emails.toLocaleLowerCase())
-    );
-
-    emails.trim().length === 0 ? setData(seed) : setData(emailsSorted);
-  }, [emails]);
-
-  // Phone sorting by string
   useEffect(() => {
     const reg = /[^0-9]/g;
 
-    let phonesSorted = seed.filter(({ phone }) =>
-      phone.split(reg).join("").includes(phones)
+    let arrSorted = trueArr.filter(
+      ({ name, phone, email }) =>
+        (name.first.toLocaleLowerCase().includes(names.toLocaleLowerCase()) ||
+          name.last.toLocaleLowerCase().includes(names.toLocaleLowerCase())) &&
+        email.toLocaleLowerCase().includes(emails.toLocaleLowerCase()) &&
+        phone.split(reg).join("").includes(phones)
     );
 
-    phones.trim().length === 0 ? setData(seed) : setData(phonesSorted);
-  }, [phones]);
-
+    if (
+      names.trim().length === 0 &&
+      emails.trim().length === 0 &&
+      phones.trim().length === 0
+    ) {
+      setData(trueArr);
+    } else {
+      setData(arrSorted);
+    }
+  }, [names, emails, phones, trueArr]);
 
   // State input managers
   const handleName = (e) => {
@@ -64,7 +56,6 @@ export default function EmployeeWebsite() {
     const { value } = e.target;
     setPhones(value);
   };
-
 
   // Main engine of sorting for ascending or descending
   const ascending = (which, bool) => {
