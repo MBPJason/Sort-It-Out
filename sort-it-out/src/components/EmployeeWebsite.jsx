@@ -14,9 +14,6 @@ export default function EmployeeWebsite() {
     bool: false,
   });
   const [person, setPerson] = useState({
-    id: {
-      value: "",
-    },
     gender: "",
     name: {
       first: "",
@@ -24,9 +21,6 @@ export default function EmployeeWebsite() {
     },
     email: "",
     phone: "",
-    picture: {
-      medium: "",
-    },
   });
 
   useEffect(() => {
@@ -76,19 +70,23 @@ export default function EmployeeWebsite() {
     const { value } = e.target;
 
     if (part === "first") {
+      let cleaned = value.toLocaleLowerCase();
+
       setPerson((prevState) => ({
         ...prevState,
         name: {
-          first: value,
+          first: cleaned,
           last: prevState.name.last,
         },
       }));
     } else if (part === "last") {
+      let cleaned = value.toLocaleLowerCase();
+
       setPerson((prevState) => ({
         ...prevState,
         name: {
           first: prevState.name.first,
-          last: value,
+          last: cleaned,
         },
       }));
     } else if (part === "phone") {
@@ -100,6 +98,7 @@ export default function EmployeeWebsite() {
         phone: num,
       }));
     } else {
+      console.log(part, value);
       setPerson((prevState) => ({
         ...prevState,
         [part]: value,
@@ -270,6 +269,100 @@ export default function EmployeeWebsite() {
     setNameAsc({ which: "", bool: false });
   };
 
+  const addPerson = (e) => {
+    // Stop submit sequence
+    e.preventDefault();
+
+    // Error Checks
+    // Check for full phone length
+    if (person.phone.length < 10) {
+      alert(
+        "Please put a full US phone number, 10 digits, in to add the person."
+      );
+    }
+    // Check for selected gender option
+    if (person.gender === null) {
+      alert("Please pick a gender");
+      console.log(person.gender);
+    }
+    // Made variables for later dress up
+    let firstName = "";
+    let lastName = "";
+    // Check for a real String value given
+    if (
+      person.name.first.trim().length === 0 ||
+      person.name.last.trim().length === 0
+    ) {
+      alert("Please out First and Last name");
+    } else {
+      // Capitalize first letter of string given
+      firstName =
+        person.name.first.charAt(0).toUpperCase() + person.name.first.slice(1);
+      lastName =
+        person.name.last.charAt(0).toUpperCase() + person.name.last.slice(1);
+    }
+
+    // Formats number from '5555555555' to '(555)-555-5555'
+    const fullPhone = ["("];
+    person.phone.split("").forEach((num, i) => {
+      i === 2
+        ? fullPhone.push(num, ")", "-")
+        : i === 5
+        ? fullPhone.push(num, "-")
+        : fullPhone.push(num);
+    });
+
+    // Gets picture for man or woman
+    const img = Math.floor(Math.random() * 100) + 1;
+    let pic = "";
+    if (person.gender === "male") {
+      pic = `men/${img}.jpg`;
+    } else {
+      pic = `women/${img}.jpg`;
+    }
+
+    // Generates ID
+    const seq = (Math.floor(Math.random() * 10000) + 10000)
+      .toString()
+      .substring(1);
+
+    // Build out person
+    const fullPerson = {
+      id: {
+        value: seq,
+      },
+      gender: person.gender,
+      name: {
+        first: firstName,
+        last: lastName,
+      },
+      email: person.email,
+      phone: fullPhone.join(""),
+      picture: {
+        medium: `https://randomuser.me/api/portraits/med/${pic}`,
+      },
+    };
+
+    // Make empty array. Merge it with old trueArr and add person
+    const newArr = [];
+    newArr.push(...trueArr, fullPerson);
+
+    // Set trueArr with new formed array
+    setTrueArr(newArr);
+
+    setPerson({
+      gender: "",
+      name: {
+        first: "",
+        last: "",
+      },
+      email: "",
+      phone: "",
+    });
+
+    alert("New Person added successfully");
+  };
+
   return (
     <main className='container'>
       <section className='jumbotron jumbotron-fluid text-center'>
@@ -296,7 +389,7 @@ export default function EmployeeWebsite() {
               Clear Filters
             </button>
           </div>
-          <form className='collapse mb-2' id='newPerson'>
+          <form className='collapse mb-2' id='newPerson' onSubmit={addPerson}>
             <div className='form-row'>
               <div className='form-group col-1'>
                 <select
@@ -304,8 +397,8 @@ export default function EmployeeWebsite() {
                   className='form-control'
                   onChange={(e) => handlePerson(e, "gender")}
                 >
-                  <option value='Male'>Male</option>
-                  <option value='Female'>Female</option>
+                  <option value={"male"}>Male</option>
+                  <option value={"female"}>Female</option>
                 </select>
               </div>
               <div className='form-group col'>
