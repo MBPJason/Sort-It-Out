@@ -4,6 +4,7 @@ import DropdownInput from "./DropdownInput";
 import seed from "../seed.json";
 
 export default function EmployeeWebsite() {
+  // States
   const [data, setData] = useState([]);
   const [trueArr, setTrueArr] = useState([]);
   const [names, setNames] = useState("");
@@ -23,11 +24,17 @@ export default function EmployeeWebsite() {
     phone: "",
   });
 
+  // On initial component mount and load or refresh of page
   useEffect(() => {
     setData(seed);
     setTrueArr(seed);
   }, []);
 
+  /** Search parameter filters are used in conjunction to filter from trueArr values
+   *  Coincidentally to change state and immediately have it reflected, you need to 
+   *  have in a useEffect dependency array to force a re-render every time it detects
+   *  a state change
+   */
   useEffect(() => {
     const reg = /[^0-9]/g;
 
@@ -262,6 +269,7 @@ export default function EmployeeWebsite() {
     }
   };
 
+  // Clear all search parameters input fields
   const clearAll = () => {
     setNames("");
     setPhones("");
@@ -269,6 +277,7 @@ export default function EmployeeWebsite() {
     setNameAsc({ which: "", bool: false });
   };
 
+  // Constructs an object for Person similar to the seed data archetype 
   const addPerson = (e) => {
     // Stop submit sequence
     e.preventDefault();
