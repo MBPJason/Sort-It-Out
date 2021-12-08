@@ -17,7 +17,7 @@ export default function EmployeeWebsite() {
     bool: false,
   });
   const [person, setPerson] = useState({
-    gender: "",
+    gender: "male",
     first: "",
     last: "",
     email: "",
@@ -75,10 +75,13 @@ export default function EmployeeWebsite() {
 
   const handlePerson = (e, part) => {
     const { value } = e.target;
+
     setPerson((prevState) => ({
       ...prevState,
       [part]: value,
     }));
+
+    console.log(person.gender)
   };
 
   // Main engine of sorting for ascending or descending
@@ -258,23 +261,22 @@ export default function EmployeeWebsite() {
       email: false,
     };
 
+    
     // Error Checks
-    // Check for selected gender option
-    person.gender === null || person.gender === undefined
-      ? alert("Please select a gender")
-      : (pass.gender = true);
+    // Check for valid email given
     validator.validate(person.email) === false
       ? alert("Please put in a valid email")
       : (pass.email = true);
-
+    // Check for valid US phone number given
     phone(person.phone, { country: "USA" }).isValid === false
       ? alert("Please put in a valid US number")
       : (pass.phone = true);
-
+    // Check for a name given for first and last name
     person.first.trim().length < 2 || person.last.trim().length < 2
       ? alert("Please put First and Last name")
       : (pass.names = true);
 
+    // If all error checks pass then execute build person
     if (pass.gender && pass.names && pass.phone && pass.email) {
       // Set up variables
       let firstName = person.first.toLocaleLowerCase();
@@ -340,7 +342,7 @@ export default function EmployeeWebsite() {
       setTrueArr(newArr);
 
       setPerson({
-        gender: "",
+        gender: "male",
         first: "",
         last: "",
         email: "",
@@ -383,7 +385,6 @@ export default function EmployeeWebsite() {
                 <select
                   id='genderChoice'
                   className='form-control'
-                  defaultValue={"male"}
                   onChange={(e) => handlePerson(e, "gender")}
                 >
                   <option value='male'>Male</option>
