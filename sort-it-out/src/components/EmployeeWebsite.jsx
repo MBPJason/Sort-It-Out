@@ -385,6 +385,7 @@ export default function EmployeeWebsite() {
                 <select
                   id='genderChoice'
                   className='form-control'
+                  value={person.gender}
                   onChange={(e) => handlePerson(e, "gender")}
                 >
                   <option value='male'>Male</option>
