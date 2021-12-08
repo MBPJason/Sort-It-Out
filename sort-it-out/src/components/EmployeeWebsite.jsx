@@ -81,7 +81,7 @@ export default function EmployeeWebsite() {
       [part]: value,
     }));
 
-    console.log(person.gender)
+    console.log(person.gender);
   };
 
   // Main engine of sorting for ascending or descending
@@ -255,13 +255,11 @@ export default function EmployeeWebsite() {
 
     // Error check object
     const pass = {
-      gender: false,
       names: false,
       phone: false,
       email: false,
     };
 
-    
     // Error Checks
     // Check for valid email given
     validator.validate(person.email) === false
@@ -277,7 +275,7 @@ export default function EmployeeWebsite() {
       : (pass.names = true);
 
     // If all error checks pass then execute build person
-    if (pass.gender && pass.names && pass.phone && pass.email) {
+    if (pass.names && pass.phone && pass.email) {
       // Set up variables
       let firstName = person.first.toLocaleLowerCase();
       let lastName = person.last.toLocaleLowerCase();
