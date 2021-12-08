@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Employee from "./Employee";
 import DropdownInput from "./DropdownInput";
 import seed from "../seed.json";
+import validator from "email-validator";
+import { phone } from "phone";
 
 export default function EmployeeWebsite() {
   // States
@@ -16,10 +18,8 @@ export default function EmployeeWebsite() {
   });
   const [person, setPerson] = useState({
     gender: "",
-    name: {
-      first: "",
-      last: "",
-    },
+    first: "",
+    last: "",
     email: "",
     phone: "",
   });
@@ -31,7 +31,7 @@ export default function EmployeeWebsite() {
   }, []);
 
   /** Search parameter filters are used in conjunction to filter from trueArr values
-   *  Coincidentally to change state and immediately have it reflected, you need to 
+   *  Coincidentally to change state and immediately have it reflected, you need to
    *  have in a useEffect dependency array to force a re-render every time it detects
    *  a state change
    */
@@ -75,42 +75,10 @@ export default function EmployeeWebsite() {
 
   const handlePerson = (e, part) => {
     const { value } = e.target;
-
-    if (part === "first") {
-      let cleaned = value.toLocaleLowerCase();
-
-      setPerson((prevState) => ({
-        ...prevState,
-        name: {
-          first: cleaned,
-          last: prevState.name.last,
-        },
-      }));
-    } else if (part === "last") {
-      let cleaned = value.toLocaleLowerCase();
-
-      setPerson((prevState) => ({
-        ...prevState,
-        name: {
-          first: prevState.name.first,
-          last: cleaned,
-        },
-      }));
-    } else if (part === "phone") {
-      const { maxLength } = e.target;
-      const num = value.slice(0, maxLength);
-
-      setPerson((prevState) => ({
-        ...prevState,
-        phone: num,
-      }));
-    } else {
-      console.log(part, value);
-      setPerson((prevState) => ({
-        ...prevState,
-        [part]: value,
-      }));
-    }
+    setPerson((prevState) => ({
+      ...prevState,
+      [part]: value,
+    }));
   };
 
   // Main engine of sorting for ascending or descending
@@ -277,99 +245,110 @@ export default function EmployeeWebsite() {
     setNameAsc({ which: "", bool: false });
   };
 
-  // Constructs an object for Person similar to the seed data archetype 
+  // Constructs an object for Person similar to the seed data archetype
   const addPerson = (e) => {
     // Stop submit sequence
     e.preventDefault();
 
-    // Error Checks
-    // Check for full phone length
-    if (person.phone.length < 10) {
-      alert(
-        "Please put a full US phone number, 10 digits, in to add the person."
-      );
-    }
-    // Check for selected gender option
-    if (person.gender === null) {
-      alert("Please pick a gender");
-      console.log(person.gender);
-    }
-    // Made variables for later dress up
-    let firstName = "";
-    let lastName = "";
-    // Check for a real String value given
-    if (
-      person.name.first.trim().length === 0 ||
-      person.name.last.trim().length === 0
-    ) {
-      alert("Please out First and Last name");
-    } else {
-      // Capitalize first letter of string given
-      firstName =
-        person.name.first.charAt(0).toUpperCase() + person.name.first.slice(1);
-      lastName =
-        person.name.last.charAt(0).toUpperCase() + person.name.last.slice(1);
-    }
-
-    // Formats number from '5555555555' to '(555)-555-5555'
-    const fullPhone = ["("];
-    person.phone.split("").forEach((num, i) => {
-      i === 2
-        ? fullPhone.push(num, ")", "-")
-        : i === 5
-        ? fullPhone.push(num, "-")
-        : fullPhone.push(num);
-    });
-
-    // Gets picture for man or woman
-    const img = Math.floor(Math.random() * 100) + 1;
-    let pic = "";
-    if (person.gender === "male") {
-      pic = `men/${img}.jpg`;
-    } else {
-      pic = `women/${img}.jpg`;
-    }
-
-    // Generates ID
-    const seq = (Math.floor(Math.random() * 10000) + 10000)
-      .toString()
-      .substring(1);
-
-    // Build out person
-    const fullPerson = {
-      id: {
-        value: seq,
-      },
-      gender: person.gender,
-      name: {
-        first: firstName,
-        last: lastName,
-      },
-      email: person.email,
-      phone: fullPhone.join(""),
-      picture: {
-        medium: `https://randomuser.me/api/portraits/med/${pic}`,
-      },
+    // Error check object
+    const pass = {
+      gender: false,
+      names: false,
+      phone: false,
+      email: false,
     };
 
-    // Make empty array. Merge it with old trueArr and add person
-    const newArr = [];
-    newArr.push(...trueArr, fullPerson);
+    // Error Checks
+    // Check for selected gender option
+    person.gender === null || person.gender === undefined
+      ? alert("Please select a gender")
+      : (pass.gender = true);
+    validator.validate(person.email) === false
+      ? alert("Please put in a valid email")
+      : (pass.email = true);
 
-    // Set trueArr with new formed array
-    setTrueArr(newArr);
+    phone(person.phone, { country: "USA" }).isValid === false
+      ? alert("Please put in a valid US number")
+      : (pass.phone = true);
 
-    setPerson({
-      gender: "",
-      name: {
+    person.first.trim().length < 2 || person.last.trim().length < 2
+      ? alert("Please put First and Last name")
+      : (pass.names = true);
+
+    if (pass.gender && pass.names && pass.phone && pass.email) {
+      // Set up variables
+      let firstName = person.first.toLocaleLowerCase();
+      let lastName = person.last.toLocaleLowerCase();
+      let formatPhone = "";
+      let pic = "";
+
+      // Formats names first character to be capitalize
+      firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+      lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
+
+      // Sets formatPhone to '8592931093' instead of the typical return value of '+18592931093'
+      formatPhone = phone(person.phone, { country: "USA" }).phoneNumber.slice(
+        2
+      );
+      // Formats number from '5555555555' to '(555)-555-5555'
+      const fullPhone = ["("];
+      formatPhone.split("").forEach((num, i) => {
+        i === 2
+          ? fullPhone.push(num, ")", "-")
+          : i === 5
+          ? fullPhone.push(num, "-")
+          : fullPhone.push(num);
+      });
+
+      // Gets picture for man or woman
+      const img = Math.floor(Math.random() * 100) + 1;
+      console.log(person.gender);
+      if (person.gender === "male") {
+        pic = `men/${img}.jpg`;
+      } else {
+        pic = `women/${img}.jpg`;
+      }
+
+      console.log(pic);
+      // Generates ID
+      const seq = (Math.floor(Math.random() * 10000) + 10000)
+        .toString()
+        .substring(1);
+
+      // Build out person
+      const fullPerson = {
+        id: {
+          value: seq,
+        },
+        gender: person.gender,
+        name: {
+          first: firstName,
+          last: lastName,
+        },
+        email: person.email,
+        phone: fullPhone.join(""),
+        picture: {
+          medium: `https://randomuser.me/api/portraits/med/${pic}`,
+        },
+      };
+
+      // Make empty array. Merge it with old trueArr and add person
+      const newArr = [];
+      newArr.push(fullPerson, ...trueArr);
+
+      // Set trueArr with new formed array
+      setTrueArr(newArr);
+
+      setPerson({
+        gender: "",
         first: "",
         last: "",
-      },
-      email: "",
-      phone: "",
-    });
+        email: "",
+        phone: "",
+      });
 
-    alert("New Person added successfully");
+      alert("New Person added successfully");
+    }
   };
 
   return (
@@ -404,10 +383,11 @@ export default function EmployeeWebsite() {
                 <select
                   id='genderChoice'
                   className='form-control'
+                  defaultValue={"male"}
                   onChange={(e) => handlePerson(e, "gender")}
                 >
-                  <option value={"male"}>Male</option>
-                  <option value={"female"}>Female</option>
+                  <option value='male'>Male</option>
+                  <option value='female'>Female</option>
                 </select>
               </div>
               <div className='form-group col'>
@@ -415,7 +395,7 @@ export default function EmployeeWebsite() {
                   type='text'
                   className='form-control'
                   placeholder='First Name'
-                  value={person.name.first}
+                  value={person.first}
                   onChange={(e) => handlePerson(e, "first")}
                 />
               </div>
@@ -424,7 +404,7 @@ export default function EmployeeWebsite() {
                   type='text'
                   className='form-control'
                   placeholder='Last Name'
-                  value={person.name.last}
+                  value={person.last}
                   onChange={(e) => handlePerson(e, "last")}
                 />
               </div>
@@ -439,10 +419,9 @@ export default function EmployeeWebsite() {
               </div>
               <div className='form-group col'>
                 <input
-                  type='number'
+                  type='text'
                   className='form-control'
                   placeholder='Phone'
-                  maxLength='10'
                   value={person.phone}
                   onChange={(e) => handlePerson(e, "phone")}
                 />
