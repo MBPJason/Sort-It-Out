@@ -5,6 +5,7 @@ function Employee(props) {
     <tr id={props.id}>
       <td>
         <img
+          style={{ height: "auto", width: 72 }}
           className='mx-auto d-block'
           alt={props.fullname}
           src={props.image}

@@ -4,6 +4,7 @@ import DropdownInput from "./DropdownInput";
 import seed from "../seed.json";
 import validator from "email-validator";
 import { phone } from "phone";
+import Jimp from "jimp";
 
 export default function EmployeeWebsite() {
   // States
@@ -16,6 +17,7 @@ export default function EmployeeWebsite() {
     which: "",
     bool: false,
   });
+  const [upload, setUpload] = useState(null);
   const [person, setPerson] = useState({
     gender: "male",
     first: "",
@@ -80,8 +82,35 @@ export default function EmployeeWebsite() {
       ...prevState,
       [part]: value,
     }));
+  };
 
-    console.log(person.gender);
+  const handleUpload = (e) => {
+    const { files } = e.target;
+
+    // Needs to be 72x72 format
+    console.log("HandleUpload called");
+    if (files && files[0]) {
+      console.log("File is there");
+      let imgURL = URL.createObjectURL(files[0]);
+      console.log(imgURL);
+      Jimp.read(imgURL)
+        .then((picture) => {
+          let trueImg = picture
+            .cover(72, 72) // resize
+            .quality(90); // set JPEG quality
+
+          // See if it made an jimp object
+          console.log(trueImg);
+
+          setUpload(imgURL);
+        })
+        .catch((err) => {
+          // Error if a file other than an image is given
+          setUpload(null);
+          console.log(err);
+          alert("Please provided a valid image");
+        });
+    }
   };
 
   // Main engine of sorting for ascending or descending
@@ -300,16 +329,16 @@ export default function EmployeeWebsite() {
           : fullPhone.push(num);
       });
 
-      // Gets picture for man or woman
+      // Gets picture for man or woman if no image is given
       const img = Math.floor(Math.random() * 100) + 1;
-      console.log(person.gender);
       if (person.gender === "male") {
-        pic = `men/${img}.jpg`;
+        pic = `https://randomuser.me/api/portraits/med/men/${img}.jpg`;
       } else {
-        pic = `women/${img}.jpg`;
+        pic = `https://randomuser.me/api/portraits/med/women/${img}.jpg`;
       }
 
       console.log(pic);
+      console.log(upload);
       // Generates ID
       const seq = (Math.floor(Math.random() * 10000) + 10000)
         .toString()
@@ -328,7 +357,7 @@ export default function EmployeeWebsite() {
         email: person.email,
         phone: fullPhone.join(""),
         picture: {
-          medium: `https://randomuser.me/api/portraits/med/${pic}`,
+          medium: upload === null ? pic : upload,
         },
       };
 
@@ -346,6 +375,7 @@ export default function EmployeeWebsite() {
         email: "",
         phone: "",
       });
+      setUpload(null);
 
       alert("New Person added successfully");
     }
@@ -389,6 +419,15 @@ export default function EmployeeWebsite() {
                   <option value='male'>Male</option>
                   <option value='female'>Female</option>
                 </select>
+              </div>
+              <div className='form-group col-2 custom-file'>
+                <input
+                  className='custom-file-input'
+                  type='file'
+                  accept='image/*'
+                  onChange={handleUpload}
+                />
+                <label className='custom-file-label'>Upload Pic</label>
               </div>
               <div className='form-group col'>
                 <input
