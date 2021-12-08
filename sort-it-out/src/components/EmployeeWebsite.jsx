@@ -87,12 +87,12 @@ export default function EmployeeWebsite() {
   const handleUpload = (e) => {
     const { files } = e.target;
 
-    // Needs to be 72x72 format
-    console.log("HandleUpload called");
     if (files && files[0]) {
-      console.log("File is there");
+
       let imgURL = URL.createObjectURL(files[0]);
-      console.log(imgURL);
+
+      // Ended up being just a way to check if an image file type was given
+      // Resized images through css inline styling 
       Jimp.read(imgURL)
         .then((picture) => {
           let trueImg = picture
@@ -337,8 +337,6 @@ export default function EmployeeWebsite() {
         pic = `https://randomuser.me/api/portraits/med/women/${img}.jpg`;
       }
 
-      console.log(pic);
-      console.log(upload);
       // Generates ID
       const seq = (Math.floor(Math.random() * 10000) + 10000)
         .toString()
